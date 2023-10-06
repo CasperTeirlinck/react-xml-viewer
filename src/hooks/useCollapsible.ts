@@ -37,6 +37,11 @@ export function isTextTag(children?: ReactNode) {
   if (!children.props.elements[0]) {
     return false;
   }
-  
-  return "#text" in children.props.elements[0];
+
+  try {
+    return "#text" in children.props.elements[0];
+  } catch (error) {
+    console.log(children.props)
+    return false
+  }
 }
