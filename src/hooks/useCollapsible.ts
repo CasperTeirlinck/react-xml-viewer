@@ -38,10 +38,5 @@ export function isTextTag(children?: ReactNode) {
     return false;
   }
 
-  try {
-    return "#text" in children.props.elements[0];
-  } catch (error) {
-    console.log(children.props)
-    return false
-  }
+  return "#text" in children.props.elements[0];
 }
