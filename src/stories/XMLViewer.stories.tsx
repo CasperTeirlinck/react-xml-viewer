@@ -64,27 +64,27 @@ const xmlString = `
 `;
 
 const meta = {
-  title: 'ReactXmlViewer',
-  component: XMLViewer,
-  argTypes: {
-    invalidXml: {
-      table: {
-         
-        disable: true,
+   title: 'ReactXmlViewer',
+   component: XMLViewer,
+   argTypes: {
+      invalidXml: {
+         table: {
+
+            disable: true,
+         },
       },
-    },
-  },
+   },
 } satisfies Meta<typeof XMLViewer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {
-    xml: xmlString,
-    indentSize: 2,
-    collapsible: true,
-    theme: defaultTheme,
-    initalCollapsedDepth: undefined
-  },
+   args: {
+      xml: xmlString,
+      indentSize: 2,
+      collapsible: true,
+      theme: defaultTheme,
+      initalCollapsedDepth: 1
+   },
 };

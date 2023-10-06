@@ -2,7 +2,7 @@ import { Attributes } from 'components/Attributes';
 import { CollapseIcon } from 'components/CollapseIcon';
 import { useXMLViewerContext } from 'context/xml-viewer-context';
 import { hasAttributes } from 'helpers';
-import { useCollapsible } from 'hooks/useCollapsible';
+import { isTextTag, useCollapsible } from 'hooks/useCollapsible';
 import { ReactNode } from 'react';
 import { AttributesObject } from 'types';
 
@@ -18,7 +18,7 @@ export interface TagProps {
 
 export function Tag(props: TagProps) {
   const { indentation, tagKey, attributes, children, isInline, hasChildren, level } = props;
-  const { collapsed, buttonProps } = useCollapsible(level);
+  const { collapsed, buttonProps } = useCollapsible(level, isTextTag(children));
   const { theme } = useXMLViewerContext();
 
   return (
@@ -36,9 +36,8 @@ export function Tag(props: TagProps) {
         <>
           {!collapsed && children}
           {collapsed && '...'}
-          <span style={{ color: theme.separatorColor }}>{`${
-            isInline || collapsed ? '' : indentation
-          }</`}</span>
+          <span style={{ color: theme.separatorColor }}>{`${isInline || collapsed ? '' : indentation
+            }</`}</span>
           <span style={{ color: theme.tagColor }}>{`${tagKey}`}</span>
           <span style={{ color: theme.separatorColor }}>{'>'}</span>
         </>
