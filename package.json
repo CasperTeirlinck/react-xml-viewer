@@ -23,6 +23,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "prepare": "npm run build",
     "lint": "eslint src --ext ts,tsx,js,jsx,json --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
