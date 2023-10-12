@@ -27,7 +27,7 @@ export function Tag(props: TagProps) {
         <span>{indentation}</span>
         <CollapseIcon collapsed={collapsed} />
         <span style={{ color: theme.separatorColor }}>{'<'}</span>
-        <span style={{ color: theme.tagColor }}>{`${tagKey}`}</span>
+        <span style={{ color: theme.tagColor, fontWeight: 'bold' }}>{`${tagKey}`}</span>
         {!collapsed && <Attributes attributes={attributes} />}
         {collapsed && hasAttributes(attributes) && ' ...'}
         <span style={{ color: theme.separatorColor }}>{!hasChildren ? ' />' : '>'}</span>
@@ -38,7 +38,7 @@ export function Tag(props: TagProps) {
           {collapsed && '...'}
           <span style={{ color: theme.separatorColor }}>{`${isInline || collapsed ? '' : indentation
             }</`}</span>
-          <span style={{ color: theme.tagColor }}>{`${tagKey}`}</span>
+          <span style={{ color: theme.tagColor, fontWeight: 'bold' }}>{`${tagKey}`}</span>
           <span style={{ color: theme.separatorColor }}>{'>'}</span>
         </>
       )}
